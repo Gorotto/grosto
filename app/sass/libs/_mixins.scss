@@ -1,3 +1,9 @@
+@mixin hover-link {
+	&:hover {
+		color: #14b4ea;
+	}
+}
+
 @mixin transition($t) {
 	-webkit-transition: all $t linear;
 	   -moz-transition: all $t linear;

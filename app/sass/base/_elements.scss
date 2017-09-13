@@ -1,0 +1,50 @@
+.btn {
+  min-width: 258px;
+  height: 49px;
+  background-color: #14b4ea;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-transparent {
+  background-color: transparent;
+  width: 219px;
+  height: 56px;
+  border: 1px solid white;
+  border-radius: 5px;
+  line-height: 41px;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.landing-title {
+  width: 100%;
+  float: left;
+  text-align: center;
+  color: #333;
+  font-size: 36px;
+  font-weight: 300;
+  text-transform: uppercase;
+  position: relative;
+  margin: 0;
+  &:after {
+    content: "";
+    background-image: url('../img/base-icons/separator.png');
+    width: 155px;
+    height: 15px;
+    position: absolute;
+    left: calc(50% - (155px / 2));
+    margin-top: 55px;
+  }
+}

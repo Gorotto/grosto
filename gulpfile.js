@@ -45,26 +45,6 @@ gulp.task('css-libs', function () { // Создаем таск css-libs
         })); // Обновляем CSS на странице при изменении
 });
 
-// Get sprite from images
-gulp.task('sprite', (cb) => {
-    let spriteData = gulp.src(['app/img/**/*.png']).pipe(spritesmith({
-        imgName: 'sprite.png',
-        cssName: '_sprite.scss',
-        algorithm: 'top-down'
-    }));
-     spriteData.css.pipe(gulp.dest('app/sass/sprite'));
-     spriteData.img.pipe(gulp.dest('img/'));
-});
-// Compress sprite image
-gulp.task('compress', ['sprite'], () => {
-    gulp.src('img/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('img/'))
-});
-// Create sprite and compress
-gulp.task('img', ['sprite', 'compress']);
-
-
 // SVG Sprites
 /*gulp.task('svg-sprite', function () {
 
@@ -144,7 +124,7 @@ gulp.task('sass', function () { // Создаем таск Sass
 gulp.task('browser-sync', function () { // Создаем таск browser-sync
     browserSync({ // Выполняем browserSync
         proxy: {
-            target: 'template' // Директория для сервера - app
+            target: 'grosto' // Директория для сервера - app
         },
         ghostMode: {
             clicks: true,
@@ -185,7 +165,7 @@ gulp.task('extend-blocks', function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('watch', ['browser-sync','compress', 'extend-pages', 'css-libs', 'img', 'sass', 'sprite'], function () {
+gulp.task('watch', ['browser-sync','compress', 'extend-pages', 'css-libs', 'img', 'sass'], function () {
     gulp.watch('app/libs/**/*', ['css-libs']); // Наблюдение за папкой libs
     gulp.watch('app/img/**/*', ['img']);// Наблюдение за папкой img
     gulp.watch('app/sass/**/*.scss', ['sass']); // Наблюдение за sass файлами в папке sass
@@ -194,21 +174,21 @@ gulp.task('watch', ['browser-sync','compress', 'extend-pages', 'css-libs', 'img'
 });
 
 
-// gulp.task('img', function () {
-//     return gulp.src('app/img/**/*')
-//         .pipe(cache(imagemin({
-//             interlaced: true,
-//             progressive: true,
-//             svgoPlugins: [{
-//                 removeViewBox: false
-//             }],
-//             use: [pngquant()]
-//         })))
-//         .pipe(gulp.dest('img'))
-//         .pipe(browserSync.reload({
-//             stream: true
-//         }));
-// });
+gulp.task('img', function () {
+    return gulp.src('app/img/**/*')
+        .pipe(cache(imagemin({
+            interlaced: true,
+            progressive: true,
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
+            use: [pngquant()]
+        })))
+        .pipe(gulp.dest('img'))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
 
 gulp.task('clear', function (callback) {
     return cache.clearAll();
