@@ -1,0 +1,48 @@
+.social-network {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  float: left;
+  background-color: #f7f7f7;
+  padding: 100px 0;
+  height: 700px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.social-network__content {
+  width: 50%;
+  text-align: left;
+  position: relative;
+  float: left;
+  left: 0;
+  z-index: 10;
+  margin-top: 140px;
+  p {
+    color: #333;
+    width: 76%;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    text-align: left;
+    margin-bottom: 25px;
+    &:last-of-type {
+      margin-bottom: 29px;
+      width: 58%;
+    }
+  }
+  .btn {
+    height: 56px;
+    line-height: 40px;
+  }
+}
+
+.social-network__pic {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  img {
+    width: 100%;
+  }
+}

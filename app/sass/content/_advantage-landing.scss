@@ -5,3 +5,57 @@
   padding: 100px 0;
   box-sizing: border-box;
 }
+
+.advantage-landing__wrap {
+  width: 100%;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+}
+
+.advantage-landing__wrap_item {
+  flex-basis: 25%;
+  justify-content: center;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+  flex-flow: row wrap;
+}
+
+
+.advantage-landing__wrap_item-text {
+  color: #333;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  margin-bottom: 0;
+  text-align: center;
+  width: 60%;
+}
+.devices-icon:after {
+  @include sprite($devices);
+}
+.cash-icon:after {
+  @include sprite($cash);
+}
+.horn-icon:after {
+  @include sprite($horn);
+}
+.notification-icon:after {
+  @include sprite($notification);
+}
+.house-icon:after {
+  @include sprite($house);
+}
+.graph-icon:after {
+  @include sprite($graph);
+}
+.dial-icon:after {
+  @include sprite($dial);
+}
+.mob-app-icon:after {
+  @include sprite($mob-app);
+}

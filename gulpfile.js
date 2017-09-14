@@ -45,25 +45,31 @@ gulp.task('css-libs', function () { // Создаем таск css-libs
         })); // Обновляем CSS на странице при изменении
 });
 
-// SVG Sprites
-/*gulp.task('svg-sprite', function () {
-
-    var svgs = gulp
-        .src(path.src.svgSprite)
-        .pipe(rename({prefix: 'svg-icon-'}))
-        .pipe(svgmin())
-        .pipe(svgstore({ inlineSvg: true }));
-
-    function fileContents (filePath, file) {
-        return file.contents.toString();
-    }
-
-    return gulp
-        .src('src/template/svg.html')
-        .pipe(inject(svgs, { transform: fileContents }))
-        .pipe(gulp.dest('src/template'));
-
-});*/
+// gulp.task('png-sprite', function () {// PNG Sprites
+//     var spriteData =
+//         gulp.src('app/img/**/*.png.')// путь, откуда берем картинки для спрайта
+//             .pipe(spritesmith({
+//                 imgName: 'sprite.png',//имя генерируемой картинки
+//                 cssName: '_sprite.sass',//имя css файла, который получится на выходе
+//                 cssFormat: 'sass',//формат css файла
+//                 algorithm: 'binary-tree',//способ сортировки изображений
+//                 cssTemplate: 'sass.template.mustache',//функция или путь до mustache шаблона, дающие возможность настроить CSS-файл на выходе
+//                 cssVarMap: function (sprite) {//цикл, настраивающий названия CSS переменных
+//                     sprite.name = 's-' + sprite.name
+//                 }
+//             }));
+//
+//     spriteData.img.pipe(gulp.dest('img/'));// путь, куда сохраняем картинку
+//     spriteData.css.pipe(gulp.dest('app/sass/libs/'));// путь, куда сохраняем стили
+// });
+gulp.task('sprite', (cb) => {
+    let spriteData = gulp.src(['app/img//**/*.png']).pipe(spritesmith({
+        imgName: '../../../img/sprite.png',
+        cssName: '_sprite.scss',
+        algorithm: 'top-down'
+    }));
+    return spriteData.pipe(gulp.dest('app/sass/sprite'));
+});
 
 /*-- таск подключается по желанию разработчика ---*/
 /*gulp.task('js-libs', function () {
@@ -165,7 +171,7 @@ gulp.task('extend-blocks', function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('watch', ['browser-sync','compress', 'extend-pages', 'css-libs', 'img', 'sass'], function () {
+gulp.task('watch', ['browser-sync','compress', 'extend-pages', 'css-libs', 'img', 'sass', 'sprite'], function () {
     gulp.watch('app/libs/**/*', ['css-libs']); // Наблюдение за папкой libs
     gulp.watch('app/img/**/*', ['img']);// Наблюдение за папкой img
     gulp.watch('app/sass/**/*.scss', ['sass']); // Наблюдение за sass файлами в папке sass

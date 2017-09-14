@@ -38,13 +38,41 @@
   text-transform: uppercase;
   position: relative;
   margin: 0;
+  z-index: 10;
   &:after {
     content: "";
-    background-image: url('../img/base-icons/separator.png');
-    width: 155px;
-    height: 15px;
+    @include sprite($separator);
     position: absolute;
     left: calc(50% - (155px / 2));
     margin-top: 55px;
+  }
+}
+
+
+.landing__orange-icon {
+  width: 118px;
+  height: 118px;
+  border: 1px dashed #ff9a22;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ff9a22;
+    border-radius: 50%;
+    display: block;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+
   }
 }

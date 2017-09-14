@@ -1,0 +1,24 @@
+.footer-landing {
+  width: 100%;
+  float: left;
+  background-color: #031b25;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.footer-landing__logo {
+  width: 146px;
+  height: 37px;
+  float: left;
+  position: relative;
+}
+
+.footer-copywriting {
+  float: right;
+  margin: 0;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 40px;
+}
