@@ -1,0 +1,58 @@
+.customers-looking {
+  width: 100%;
+  float: left;
+  background-color: #fff;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+
+.customers-looking__wrap {
+  width: 100%;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+}
+
+.customers-looking__wrap_item {
+  flex-basis: 33.3%;
+  justify-content: center;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+  flex-flow: row wrap;
+
+}
+
+
+.customers-looking__wrap_item-text {
+  color: #333;
+  font-size: 16px;
+  font-family: $rl;
+  line-height: 24px;
+  margin-bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.networks-icon:after {
+  @include sprite($networks);
+}
+.suppliers-icon:after {
+  @include sprite($suppliers);
+}
+.shops-icon:after {
+  @include sprite($shops);
+}
+.manufacturers-icon:after {
+  @include sprite($manufacturers);
+}
+.markets-icon:after {
+  @include sprite($markets);
+}
+.entrepreneurs-icon:after {
+  @include sprite($entrepreneurs);
+}

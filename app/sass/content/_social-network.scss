@@ -1,13 +1,22 @@
 .social-network {
   background-repeat: no-repeat;
-  background-size: contain;
   width: 100%;
   float: left;
+  background-size: cover;
   background-color: #f7f7f7;
   padding: 100px 0;
   height: 700px;
   box-sizing: border-box;
   position: relative;
+  text-align: center;
+  @include breakpoint($tablet-breakpoint) {
+    padding: 50px 0;
+    height: 500px;
+  }
+  @include breakpoint($phone-breakpoint) {
+    padding: 50px 0;
+    height: 500px;
+  }
 }
 
 .social-network__content {
@@ -18,17 +27,44 @@
   left: 0;
   z-index: 10;
   margin-top: 140px;
+  @include breakpoint($tablet-breakpoint) {
+    margin: 70px auto 0;
+    display: inline-block;
+    float: none;
+    text-align: center;
+  }
+  @include breakpoint($phone-breakpoint) {
+    width: 90%;
+    display: inline-block;
+    float: none;
+    text-align: center;
+
+  }
   p {
     color: #333;
     width: 76%;
     font-size: 16px;
-    font-weight: 300;
+    font-family: $rl;
     line-height: 24px;
     text-align: left;
     margin-bottom: 25px;
+    @include breakpoint($tablet-breakpoint) {
+      width: 100%;
+      text-align: center;
+    }
+    @include breakpoint($phone-breakpoint) {
+      width: 100%;
+      text-align: center;
+    }
     &:last-of-type {
       margin-bottom: 29px;
       width: 58%;
+      @include breakpoint($tablet-breakpoint) {
+        width: 100%;
+      }
+      @include breakpoint($phone-breakpoint) {
+        width: 100%;
+      }
     }
   }
   .btn {
@@ -41,8 +77,18 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 40%;
+  width: 53%;
+  height: 100%;
+  @include breakpoint($tablet-breakpoint) {
+    width: 100%;
+    opacity: 0.3;
+  }
+  @include breakpoint($phone-breakpoint) {
+    width: 100%;
+    opacity: 0.3;
+  }
   img {
     width: 100%;
+    height: 100%;
   }
 }

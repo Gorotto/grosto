@@ -4,6 +4,12 @@
   background-color: #fff;
   padding: 100px 0;
   box-sizing: border-box;
+  @include breakpoint($tablet-breakpoint) {
+    padding: 50px 0;
+  }
+  @include breakpoint($phone-breakpoint) {
+    padding: 50px 0;
+  }
 }
 
 .advantage-landing__wrap {
@@ -13,7 +19,38 @@
   display: inline-flex;
   justify-content: center;
   flex-flow: row wrap;
+  margin-top: 115px;
+  @include breakpoint($tablet-breakpoint) {
+    margin-top: 70px;
+  }
 
+  p {
+    width: 100%;
+    float: left;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    font-weight: $rm;
+    line-height: 22px;
+    margin: 100px 0 50px;
+  }
+  .advantage-landing__wrap_item-text {
+    color: #333;
+    font-size: 16px;
+    font-family: $rl;
+    line-height: 24px;
+    margin: 0;
+    text-align: center;
+    width: 60%;
+    margin-top: 15px;
+    height: 72px;
+    @include breakpoint($tablet-breakpoint) {
+      width: 90%;
+    }
+    @include breakpoint($phone-breakpoint) {
+      width: 90%;
+    }
+  }
 }
 
 .advantage-landing__wrap_item {
@@ -23,18 +60,17 @@
   display: -ms-inline-flex;
   display: inline-flex;
   flex-flow: row wrap;
+  margin-bottom: 43px;
+  &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7), &:nth-of-type(8) {
+    margin-bottom: 0;
+   }
+ @include breakpoint($phone-breakpoint) {
+   flex-basis: 50%;
+ }
 }
 
 
-.advantage-landing__wrap_item-text {
-  color: #333;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 24px;
-  margin-bottom: 0;
-  text-align: center;
-  width: 60%;
-}
+
 .devices-icon:after {
   @include sprite($devices);
 }
@@ -58,4 +94,58 @@
 }
 .mob-app-icon:after {
   @include sprite($mob-app);
+}
+.brand-icon:after {
+  @include sprite($brand);
+}
+.link-icon:after {
+  @include sprite($link);
+}
+.eye-icon:after {
+  @include sprite($eye);
+}
+.list-icon:after {
+  @include sprite($list);
+}
+.raiting-icon:after {
+  @include sprite($raiting);
+}
+.card-icon:after {
+  @include sprite($card);
+}
+
+.annotation__wrap {
+  margin: 70px auto 0;
+  width: 688px;
+  padding: 30px 20px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  position: relative;
+  &:after, &:before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    background-color: #dbdbdb;
+    left: calc(50% - (17px / 2));
+    position: absolute;
+    bottom: -9px;
+    transform: rotate(45deg);
+  }
+  &:before {
+    content: "";
+    top: -9px;
+
+  }
+  b {
+    width: 100%;
+    font-family: $rb;
+  }
+  p {
+    width: 100%;
+    color: #333;
+    font-family: $rr;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+  }
 }

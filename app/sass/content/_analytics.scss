@@ -4,6 +4,12 @@
   background-color: #fff;
   padding: 100px 0;
   box-sizing: border-box;
+  @include breakpoint($tablet-breakpoint) {
+    padding: 50px 0;
+  }
+  @include breakpoint($phone-breakpoint) {
+    padding: 50px 0;
+  }
 }
 
 .analytics__wrap {
@@ -13,19 +19,39 @@
   display: inline-flex;
   flex-flow: row wrap;
   justify-content: center;
+  margin-top: 104px;
+  @include breakpoint($tablet-breakpoint) {
+    margin-top: 70px;
+  }
 }
 .analytics__wrap_item {
   flex-basis: 25%;
   justify-content: center;
   text-align: center;
+  @include breakpoint($phone-breakpoint) {
+    flex-basis: 50%;
+    margin-bottom: 15px;
+  }
   &:nth-of-type(4) {
     .analytics__wrap_item-text {
       width: 71%;
+      @include breakpoint($tablet-breakpoint) {
+        width: 100%;
+      }
+      @include breakpoint($phone-breakpoint) {
+        width: 100%;
+      }
     }
   }
   &:nth-of-type(1) {
     .analytics__wrap_item-text {
       width: 60%;
+      @include breakpoint($tablet-breakpoint) {
+        width: 100%;
+      }
+      @include breakpoint($phone-breakpoint) {
+        width: 100%;
+      }
     }
   }
 }
@@ -50,12 +76,18 @@
   color: #333;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 300;
-  margin: 26px auto 0;
+  font-family: $rl;
+  margin: 3px auto 0;
+  @include breakpoint($tablet-breakpoint) {
+    width: 100%;
+  }
+  @include breakpoint($phone-breakpoint) {
+    width: 100%;
+  }
   b {
     width: 100%;
     display: inline-block;
-    font-weight: 700;
+    font-family: $rb;
   }
 
 }

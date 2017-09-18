@@ -1,0 +1,104 @@
+.prices {
+  width: 100%;
+  float: left;
+  background-color: #f7f7f7;
+  padding: 100px 0;
+  box-sizing: border-box;
+}
+
+.prices__wrap {
+  width: 100%;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.prices__wrap_item {
+  flex-basis: 340px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+  background-color: #fff;
+  &-title {
+    height: 63px;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-size: 20px;
+    font-family: $rm;
+    text-align: center;
+    color: #fff;
+    line-height: 63px;
+    display: inline-block;
+    margin: 0;
+  }
+  &-price {
+    width: 100%;
+    height: 101px;
+    display: inline-block;
+    text-align: center;
+    font-size: 32px;
+    font-family: $rb;
+    color: #fff;
+    line-height: 80px;
+    position: relative;
+    &:after {
+      content: "";
+      width: 0;
+    	height: 0;
+    	border-left: 7px solid transparent;
+    	border-right: 7px solid transparent;
+
+      position: absolute;
+      bottom: -5px;
+      left: calc(50% - 7px);
+    }
+    small {
+      width: 100%;
+      display: inline-block;
+      font-size: 18px;
+      font-family: $rl;
+      line-height: 24px;
+      position: absolute;
+      left: 0;
+      margin-top: 55px;
+    }
+    &-green {
+      background-color: #80dbca;
+      &:after {
+        border-top: 5px solid #80dbca;
+      }
+    }
+    &-orange {
+      background-color: #ffb55d;
+      &:after {
+        border-top: 5px solid #ffb55d;
+      }
+    }
+  }
+  p {
+    font-size: 14px;
+    margin: 0;
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f3f3f3;
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  a {
+    display: inline-block;
+    height: 56px;
+    width: 100%;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 20px;
+    font-family: $rb;
+    line-height: 56px;
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+}

@@ -4,7 +4,7 @@
   background-color: #14b4ea;
   border-radius: 5px;
   font-size: 18px;
-  font-weight: 700;
+  font-family: $rb;
   line-height: 34px;
   color: #fff;
   letter-spacing: 0.5px;
@@ -18,11 +18,12 @@
 
 .btn-transparent {
   background-color: transparent;
-  width: 219px;
+  min-width: 219px;
   height: 56px;
   border: 1px solid white;
   border-radius: 5px;
   line-height: 41px;
+  margin-top: 29px;
   &:hover {
     color: #fff;
   }
@@ -34,17 +35,34 @@
   text-align: center;
   color: #333;
   font-size: 36px;
-  font-weight: 300;
+
+  font-family: $rl;
   text-transform: uppercase;
   position: relative;
   margin: 0;
   z-index: 10;
+  @include breakpoint($tablet-breakpoint) {
+    font-size: 30px;
+  }
+  @include breakpoint($phone-breakpoint) {
+    font-size: 25px;
+  }
   &:after {
     content: "";
     @include sprite($separator);
     position: absolute;
     left: calc(50% - (155px / 2));
     margin-top: 55px;
+  }
+  &-small {
+    padding: 0 17%;
+    box-sizing: border-box;
+    @include breakpoint($tablet-breakpoint) {
+      padding: 0;
+    }
+    @include breakpoint($phone-breakpoint) {
+      padding: 0;
+    }
   }
 }
 
@@ -75,4 +93,18 @@
     position: absolute;
 
   }
+}
+
+p {
+  color: #333;
+  font-family: $rl;
+  font-size: 16px;
+}
+
+.bgc-green {
+  background-color: #78cfbf;
+}
+
+.bgc-orange {
+  background-color: #fda236;
 }

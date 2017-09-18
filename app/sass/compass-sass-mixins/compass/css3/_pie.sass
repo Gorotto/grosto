@@ -22,13 +22,13 @@ $pie-behavior: stylesheet-url("PIE.htc") !default
 
 // When using the z-index approach, the
 // first ancestor of the PIE element at
-// or before the container's opaque background
+// or before the container-wrap's opaque background
 // should have a z-index set as well to ensure
 // propert z-index stacking.
 //
 // The `$position` argument must be some non-static
 // value (absolute, relative, etc.)
-=pie-container($z-index: 0, $position: relative)
+=pie-container-wrap($z-index: 0, $position: relative)
   z-index: $z-index
   position: $position
 

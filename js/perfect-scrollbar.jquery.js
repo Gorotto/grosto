@@ -418,7 +418,7 @@ function bindClickRailHandler(element, i) {
     var positionTop = e.pageY - window.pageYOffset - pageOffset(i.scrollbarYRail).top;
     var direction = positionTop > i.scrollbarYTop ? 1 : -1;
 
-    updateScroll(element, 'top', element.scrollTop + direction * i.containerHeight);
+    updateScroll(element, 'top', element.scrollTop + direction * i.container-wrap-wrapHeight);
     updateGeometry(element);
 
     e.stopPropagation();
@@ -429,7 +429,7 @@ function bindClickRailHandler(element, i) {
     var positionLeft = e.pageX - window.pageXOffset - pageOffset(i.scrollbarXRail).left;
     var direction = positionLeft > i.scrollbarXLeft ? 1 : -1;
 
-    updateScroll(element, 'left', element.scrollLeft + direction * i.containerWidth);
+    updateScroll(element, 'left', element.scrollLeft + direction * i.container-wrap-wrapWidth);
     updateGeometry(element);
 
     e.stopPropagation();
@@ -466,7 +466,7 @@ function bindMouseScrollXHandler(element, i) {
       i.scrollbarXLeft = newLeft;
     }
 
-    var scrollLeft = _.toInt(i.scrollbarXLeft * (i.contentWidth - i.containerWidth) / (i.containerWidth - (i.railXRatio * i.scrollbarXWidth))) - i.negativeScrollAdjustment;
+    var scrollLeft = _.toInt(i.scrollbarXLeft * (i.contentWidth - i.container-wrap-wrapWidth) / (i.container-wrap-wrapWidth - (i.railXRatio * i.scrollbarXWidth))) - i.negativeScrollAdjustment;
     updateScroll(element, 'left', scrollLeft);
   }
 
@@ -511,7 +511,7 @@ function bindMouseScrollYHandler(element, i) {
       i.scrollbarYTop = newTop;
     }
 
-    var scrollTop = _.toInt(i.scrollbarYTop * (i.contentHeight - i.containerHeight) / (i.containerHeight - (i.railYRatio * i.scrollbarYHeight)));
+    var scrollTop = _.toInt(i.scrollbarYTop * (i.contentHeight - i.container-wrap-wrapHeight) / (i.container-wrap-wrapHeight - (i.railYRatio * i.scrollbarYHeight)));
     updateScroll(element, 'top', scrollTop);
   }
 
@@ -571,7 +571,7 @@ function bindKeyboardHandler(element, i) {
       if (!i.scrollbarYActive) {
         return false;
       }
-      if ((scrollTop === 0 && deltaY > 0) || (scrollTop >= i.contentHeight - i.containerHeight && deltaY < 0)) {
+      if ((scrollTop === 0 && deltaY > 0) || (scrollTop >= i.contentHeight - i.container-wrap-wrapHeight && deltaY < 0)) {
         return !i.settings.wheelPropagation;
       }
     }
@@ -581,7 +581,7 @@ function bindKeyboardHandler(element, i) {
       if (!i.scrollbarXActive) {
         return false;
       }
-      if ((scrollLeft === 0 && deltaX < 0) || (scrollLeft >= i.contentWidth - i.containerWidth && deltaX > 0)) {
+      if ((scrollLeft === 0 && deltaX < 0) || (scrollLeft >= i.contentWidth - i.container-wrap-wrapWidth && deltaX > 0)) {
         return !i.settings.wheelPropagation;
       }
     }
@@ -623,7 +623,7 @@ function bindKeyboardHandler(element, i) {
       if (e.metaKey) {
         deltaX = -i.contentWidth;
       } else if (e.altKey) {
-        deltaX = -i.containerWidth;
+        deltaX = -i.container-wrap-wrapWidth;
       } else {
         deltaX = -30;
       }
@@ -632,7 +632,7 @@ function bindKeyboardHandler(element, i) {
       if (e.metaKey) {
         deltaY = i.contentHeight;
       } else if (e.altKey) {
-        deltaY = i.containerHeight;
+        deltaY = i.container-wrap-wrapHeight;
       } else {
         deltaY = 30;
       }
@@ -641,7 +641,7 @@ function bindKeyboardHandler(element, i) {
       if (e.metaKey) {
         deltaX = i.contentWidth;
       } else if (e.altKey) {
-        deltaX = i.containerWidth;
+        deltaX = i.container-wrap-wrapWidth;
       } else {
         deltaX = 30;
       }
@@ -650,7 +650,7 @@ function bindKeyboardHandler(element, i) {
       if (e.metaKey) {
         deltaY = -i.contentHeight;
       } else if (e.altKey) {
-        deltaY = -i.containerHeight;
+        deltaY = -i.container-wrap-wrapHeight;
       } else {
         deltaY = -30;
       }
@@ -672,14 +672,14 @@ function bindKeyboardHandler(element, i) {
       if (e.ctrlKey) {
         deltaY = -i.contentHeight;
       } else {
-        deltaY = -i.containerHeight;
+        deltaY = -i.container-wrap-wrapHeight;
       }
       break;
     case 36: // home
       if (e.ctrlKey) {
         deltaY = element.scrollTop;
       } else {
-        deltaY = i.containerHeight;
+        deltaY = i.container-wrap-wrapHeight;
       }
       break;
     default:
@@ -718,7 +718,7 @@ function bindMouseWheelHandler(element, i) {
       if (!i.scrollbarYActive) {
         return false;
       }
-      if ((scrollTop === 0 && deltaY > 0) || (scrollTop >= i.contentHeight - i.containerHeight && deltaY < 0)) {
+      if ((scrollTop === 0 && deltaY > 0) || (scrollTop >= i.contentHeight - i.container-wrap-wrapHeight && deltaY < 0)) {
         return !i.settings.wheelPropagation;
       }
     }
@@ -728,7 +728,7 @@ function bindMouseWheelHandler(element, i) {
       if (!i.scrollbarXActive) {
         return false;
       }
-      if ((scrollLeft === 0 && deltaX < 0) || (scrollLeft >= i.contentWidth - i.containerWidth && deltaX > 0)) {
+      if ((scrollLeft === 0 && deltaX < 0) || (scrollLeft >= i.contentWidth - i.container-wrap-wrapWidth && deltaX > 0)) {
         return !i.settings.wheelPropagation;
       }
     }
@@ -877,7 +877,7 @@ function bindSelectionHandler(element, i) {
     if (selection.toString().length === 0) {
       return null;
     } else {
-      return selection.getRangeAt(0).commonAncestorContainer;
+      return selection.getRangeAt(0).commonAncestorcontainer-wrap;
     }
   }
 
@@ -930,32 +930,32 @@ function bindSelectionHandler(element, i) {
   i.event.bind(window, 'mousemove', function (e) {
     if (isSelected) {
       var mousePosition = {x: e.pageX, y: e.pageY};
-      var containerGeometry = {
+      var container-wrapGeometry = {
         left: element.offsetLeft,
         right: element.offsetLeft + element.offsetWidth,
         top: element.offsetTop,
         bottom: element.offsetTop + element.offsetHeight
       };
 
-      if (mousePosition.x < containerGeometry.left + 3) {
+      if (mousePosition.x < container-wrapGeometry.left + 3) {
         scrollDiff.left = -5;
         _.startScrolling(element, 'x');
-      } else if (mousePosition.x > containerGeometry.right - 3) {
+      } else if (mousePosition.x > container-wrapGeometry.right - 3) {
         scrollDiff.left = 5;
         _.startScrolling(element, 'x');
       } else {
         scrollDiff.left = 0;
       }
 
-      if (mousePosition.y < containerGeometry.top + 3) {
-        if (containerGeometry.top + 3 - mousePosition.y < 5) {
+      if (mousePosition.y < container-wrapGeometry.top + 3) {
+        if (container-wrapGeometry.top + 3 - mousePosition.y < 5) {
           scrollDiff.top = -5;
         } else {
           scrollDiff.top = -20;
         }
         _.startScrolling(element, 'y');
-      } else if (mousePosition.y > containerGeometry.bottom - 3) {
-        if (mousePosition.y - containerGeometry.bottom + 3 < 5) {
+      } else if (mousePosition.y > container-wrapGeometry.bottom - 3) {
+        if (mousePosition.y - container-wrapGeometry.bottom + 3 < 5) {
           scrollDiff.top = 5;
         } else {
           scrollDiff.top = 20;
@@ -997,14 +997,14 @@ function bindTouchHandler(element, i, supportsTouch, supportsIePointer) {
     if (magnitudeY > magnitudeX) {
       // user is perhaps trying to swipe up/down the page
 
-      if (((deltaY < 0) && (scrollTop === i.contentHeight - i.containerHeight)) ||
+      if (((deltaY < 0) && (scrollTop === i.contentHeight - i.container-wrap-wrapHeight)) ||
           ((deltaY > 0) && (scrollTop === 0))) {
         return !i.settings.swipePropagation;
       }
     } else if (magnitudeX > magnitudeY) {
       // user is perhaps trying to swipe left/right across the page
 
-      if (((deltaX < 0) && (scrollLeft === i.contentWidth - i.containerWidth)) ||
+      if (((deltaX < 0) && (scrollLeft === i.contentWidth - i.container-wrap-wrapWidth)) ||
           ((deltaX > 0) && (scrollLeft === 0))) {
         return !i.settings.swipePropagation;
       }
@@ -1182,7 +1182,7 @@ var nativeScrollHandler = require('./handler/native-scroll');
 module.exports = function (element, userSettings) {
   userSettings = typeof userSettings === 'object' ? userSettings : {};
 
-  cls.add(element, 'ps-container');
+  cls.add(element, 'ps-container-wrap');
 
   // Create a plugin instance.
   var i = instances.add(element);
@@ -1215,8 +1215,8 @@ function Instance(element) {
   var i = this;
 
   i.settings = _.clone(defaultSettings);
-  i.containerWidth = null;
-  i.containerHeight = null;
+  i.container-wrap-wrapWidth = null;
+  i.container-wrap-wrapHeight = null;
   i.contentWidth = null;
   i.contentHeight = null;
 
@@ -1330,7 +1330,7 @@ function getThumbSize(i, thumbSize) {
 function updateCss(element, i) {
   var xRailOffset = {width: i.railXWidth};
   if (i.isRtl) {
-    xRailOffset.left = i.negativeScrollAdjustment + element.scrollLeft + i.containerWidth - i.contentWidth;
+    xRailOffset.left = i.negativeScrollAdjustment + element.scrollLeft + i.container-wrap-wrapWidth - i.contentWidth;
   } else {
     xRailOffset.left = element.scrollLeft;
   }
@@ -1350,7 +1350,7 @@ function updateCss(element, i) {
     }
   } else {
     if (i.isRtl) {
-      yRailOffset.left = i.negativeScrollAdjustment + element.scrollLeft + i.containerWidth * 2 - i.contentWidth - i.scrollbarYLeft - i.scrollbarYOuterWidth;
+      yRailOffset.left = i.negativeScrollAdjustment + element.scrollLeft + i.container-wrap-wrapWidth * 2 - i.contentWidth - i.scrollbarYLeft - i.scrollbarYOuterWidth;
     } else {
       yRailOffset.left = i.scrollbarYLeft + element.scrollLeft;
     }
@@ -1364,8 +1364,8 @@ function updateCss(element, i) {
 module.exports = function (element) {
   var i = instances.get(element);
 
-  i.containerWidth = element.clientWidth;
-  i.containerHeight = element.clientHeight;
+  i.container-wrap-wrapWidth = element.clientWidth;
+  i.container-wrap-wrapHeight = element.clientHeight;
   i.contentWidth = element.scrollWidth;
   i.contentHeight = element.scrollHeight;
 
@@ -1389,22 +1389,22 @@ module.exports = function (element) {
     dom.appendTo(i.scrollbarYRail, element);
   }
 
-  if (!i.settings.suppressScrollX && i.containerWidth + i.settings.scrollXMarginOffset < i.contentWidth) {
+  if (!i.settings.suppressScrollX && i.container-wrap-wrapWidth + i.settings.scrollXMarginOffset < i.contentWidth) {
     i.scrollbarXActive = true;
-    i.railXWidth = i.containerWidth - i.railXMarginWidth;
-    i.railXRatio = i.containerWidth / i.railXWidth;
-    i.scrollbarXWidth = getThumbSize(i, _.toInt(i.railXWidth * i.containerWidth / i.contentWidth));
-    i.scrollbarXLeft = _.toInt((i.negativeScrollAdjustment + element.scrollLeft) * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.containerWidth));
+    i.railXWidth = i.container-wrap-wrapWidth - i.railXMarginWidth;
+    i.railXRatio = i.container-wrap-wrapWidth / i.railXWidth;
+    i.scrollbarXWidth = getThumbSize(i, _.toInt(i.railXWidth * i.container-wrap-wrapWidth / i.contentWidth));
+    i.scrollbarXLeft = _.toInt((i.negativeScrollAdjustment + element.scrollLeft) * (i.railXWidth - i.scrollbarXWidth) / (i.contentWidth - i.container-wrap-wrapWidth));
   } else {
     i.scrollbarXActive = false;
   }
 
-  if (!i.settings.suppressScrollY && i.containerHeight + i.settings.scrollYMarginOffset < i.contentHeight) {
+  if (!i.settings.suppressScrollY && i.container-wrap-wrapHeight + i.settings.scrollYMarginOffset < i.contentHeight) {
     i.scrollbarYActive = true;
-    i.railYHeight = i.containerHeight - i.railYMarginHeight;
-    i.railYRatio = i.containerHeight / i.railYHeight;
-    i.scrollbarYHeight = getThumbSize(i, _.toInt(i.railYHeight * i.containerHeight / i.contentHeight));
-    i.scrollbarYTop = _.toInt(element.scrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.containerHeight));
+    i.railYHeight = i.container-wrap-wrapHeight - i.railYMarginHeight;
+    i.railYRatio = i.container-wrap-wrapHeight / i.railYHeight;
+    i.scrollbarYHeight = getThumbSize(i, _.toInt(i.railYHeight * i.container-wrap-wrapHeight / i.contentHeight));
+    i.scrollbarYTop = _.toInt(element.scrollTop * (i.railYHeight - i.scrollbarYHeight) / (i.contentHeight - i.container-wrap-wrapHeight));
   } else {
     i.scrollbarYActive = false;
   }
@@ -1475,9 +1475,9 @@ module.exports = function (element, axis, value) {
 
   var i = instances.get(element);
 
-  if (axis === 'top' && value >= i.contentHeight - i.containerHeight) {
-    // don't allow scroll past container
-    value = i.contentHeight - i.containerHeight;
+  if (axis === 'top' && value >= i.contentHeight - i.container-wrap-wrapHeight) {
+    // don't allow scroll past container-wrap
+    value = i.contentHeight - i.container-wrap-wrapHeight;
     if (value - element.scrollTop <= 1) {
       // mitigates rounding errors on non-subpixel scroll values
       value = element.scrollTop;
@@ -1487,9 +1487,9 @@ module.exports = function (element, axis, value) {
     element.dispatchEvent(createDOMEvent('ps-y-reach-end'));
   }
 
-  if (axis === 'left' && value >= i.contentWidth - i.containerWidth) {
-    // don't allow scroll past container
-    value = i.contentWidth - i.containerWidth;
+  if (axis === 'left' && value >= i.contentWidth - i.container-wrap-wrapWidth) {
+    // don't allow scroll past container-wrap
+    value = i.contentWidth - i.container-wrap-wrapWidth;
     if (value - element.scrollLeft <= 1) {
       // mitigates rounding errors on non-subpixel scroll values
       value = element.scrollLeft;

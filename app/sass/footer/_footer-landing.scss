@@ -1,9 +1,16 @@
-.footer-landing {
+.footer-landing-shop, .footer-landing-products {
   width: 100%;
   float: left;
   background-color: #031b25;
   padding: 40px 0;
   box-sizing: border-box;
+}
+.footer-landing-products {
+  background-color: #f1f1f1;
+  text-align: right;
+  .btn {
+    float: right;
+  }
 }
 
 .footer-landing__logo {
@@ -18,7 +25,19 @@
   margin: 0;
   text-align: right;
   font-size: 15px;
-  font-weight: 300;
+  font-family: $rl;
   color: #fff;
   line-height: 40px;
+}
+
+.footer-text {
+  float: none;
+  display: inline-block;
+  color: #707070;
+  font-family: $rl;
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  width: 27%;
+  text-align: left;
 }

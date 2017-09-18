@@ -1,0 +1,28 @@
+.stable-sales {
+  width: 100%;
+  float: left;
+  background-image: url("../img/landing/stable-sales--fon.png");
+  height: 862px;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  box-sizing: border-box;
+  @include breakpoint($tablet-breakpoint) {
+    padding: 50px 0;
+    height: initial;
+  }
+  @include breakpoint($phone-breakpoint) {
+    padding: 50px 0;
+    height: initial;
+  }
+}
+
+.stable-sales-pic {
+  float: right;
+  margin-top: 84px;
+  @include breakpoint($phone-breakpoint) {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
