@@ -4,6 +4,12 @@
   background-color: #fff;
   padding: 100px 0;
   box-sizing: border-box;
+  @include breakpoint($tablet-breakpoint) {
+    padding: 50px 0;
+  }
+  @include breakpoint($phone-breakpoint) {
+    padding: 50px 0;
+  }
 }
 
 .customers-looking__wrap {
@@ -13,7 +19,7 @@
   display: inline-flex;
   justify-content: center;
   flex-flow: row wrap;
-
+  margin-top: 50px;
 }
 
 .customers-looking__wrap_item {
@@ -23,7 +29,10 @@
   display: -ms-inline-flex;
   display: inline-flex;
   flex-flow: row wrap;
-
+  margin-top: 50px;
+  @include breakpoint($phone-breakpoint) {
+    flex-basis: 50%;
+  }
 }
 
 

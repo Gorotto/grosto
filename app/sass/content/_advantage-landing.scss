@@ -23,16 +23,15 @@
   @include breakpoint($tablet-breakpoint) {
     margin-top: 70px;
   }
-
   p {
     width: 100%;
     float: left;
     text-align: center;
     color: #333;
     font-size: 18px;
-    font-weight: $rm;
+    font-weight: $rb!important;
     line-height: 22px;
-    margin: 100px 0 50px;
+    margin: -10px 0 47px;
   }
   .advantage-landing__wrap_item-text {
     color: #333;
@@ -48,7 +47,7 @@
       width: 90%;
     }
     @include breakpoint($phone-breakpoint) {
-      width: 90%;
+      width: 100%;
     }
   }
 }
@@ -65,7 +64,11 @@
     margin-bottom: 0;
    }
  @include breakpoint($phone-breakpoint) {
+   &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7), &:nth-of-type(8) {
+     margin-bottom: 25px;
+    }
    flex-basis: 50%;
+   margin-bottom: 25px;
  }
 }
 
@@ -121,6 +124,10 @@
   border-top: 1px solid #dbdbdb;
   border-bottom: 1px solid #dbdbdb;
   position: relative;
+  @include breakpoint($phone-breakpoint) {
+    width: 100%;
+    text-align: center;
+  }
   &:after, &:before {
     content: "";
     width: 17px;
@@ -139,6 +146,10 @@
   b {
     width: 100%;
     font-family: $rb;
+    @include breakpoint($phone-breakpoint) {
+      width: 100%;
+      display: inline-block;
+    }
   }
   p {
     width: 100%;

@@ -10,6 +10,9 @@
   text-align: right;
   .btn {
     float: right;
+    @include breakpoint($phone-breakpoint) {
+      display: none;
+    }
   }
 }
 
@@ -40,4 +43,10 @@
   line-height: 22px;
   width: 27%;
   text-align: left;
+  @include breakpoint($tablet-breakpoint) {
+    width: 39%;
+  }
+  @include breakpoint($phone-breakpoint) {
+    display: none;
+  }
 }

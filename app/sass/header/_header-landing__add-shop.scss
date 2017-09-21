@@ -7,6 +7,10 @@
   height: 845px;
   padding-top: 22px;
   box-sizing: border-box;
+  @include breakpoint($tablet-rotate) {
+    height: initial;
+    padding-bottom: 30px;
+  }
   @include breakpoint($tablet-breakpoint) {
     height: initial;
     padding-bottom: 40px;
@@ -23,6 +27,10 @@
   height: 800px;
   padding-top: 22px;
   box-sizing: border-box;
+  @include breakpoint($tablet-rotate) {
+    height: initial;
+    padding-bottom: 30px;
+  }
 }
 
 .header-landing__login {
@@ -62,15 +70,23 @@
 }
 
 .header-landing__numbeers {
-  width: 16%;
+  width: 17%;
   float: right;
   position: relative;
   display: inline-block;
+  @include breakpoint($tablet-rotate) {
+    width: 21%;
+  }
+  @include breakpoint($tablet-breakpoint) {
+    width: 27%;
+  }
+  @include breakpoint($phone-breakpoint) {
+    width: 57%;
+  }
   a {
     color: #fefefe;
     font-size: 15px;
     font-family: $rl;
-    width: calc(100% - 49px);
     float: right;
     text-align: right;
     position: relative;
@@ -78,6 +94,16 @@
     i {
       color: #fefefe;
     }
+  }
+  .numbers {
+    width: calc(100% - 56px);
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 44px;
   }
 }
 
@@ -94,6 +120,9 @@
   width: 100%;
   float: left;
   margin-top: 177px;
+  @include breakpoint($tablet-rotate) {
+    margin-top: 40px;
+  }
   @include breakpoint($tablet-breakpoint) {
     margin-top: 20px;
   }
@@ -143,6 +172,10 @@
   width: 65%;
   text-align: left;
   margin-top: 56px;
+  @include breakpoint($tablet-rotate) {
+    margin-top: 5px;
+    width: calc(95% - 365px);
+  }
   @include breakpoint($tablet-breakpoint) {
     margin-top: 5px;
     width: calc(100% - 365px);

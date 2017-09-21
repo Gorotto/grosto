@@ -56,6 +56,12 @@
   }
   &:nth-of-type(4), &:nth-of-type(5) {
     margin-top: 74px;
+    @include breakpoint($tablet-rotate) {
+      &:after {
+        width: 200px;
+        left: 69%;
+      }
+    }
     @include breakpoint($phone-breakpoint) {
       margin-top: 0;
     }
@@ -63,6 +69,11 @@
   &:nth-of-type(5) {
     &:after {
       width: 200px;
+    }
+    @include breakpoint($tablet-rotate) {
+      &:after {
+        display: none;
+      }
     }
   }
   &:nth-of-type(3) {
@@ -72,6 +83,11 @@
       position: absolute;
       top: 55px;
       left: 71%;
+    }
+    @include breakpoint($tablet-rotate) {
+      &:after {
+        display: none;
+      }
     }
   }
 }

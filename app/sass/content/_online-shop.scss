@@ -24,6 +24,9 @@
   margin-top: 30px;
   float: left;
   margin-left: 13px;
+  @include breakpoint($tablet-rotate) {
+    width: calc(100% - 610px);
+  }
   @include breakpoint($tablet-breakpoint) {
     width: 100%;
     margin-left: 0;
@@ -51,12 +54,20 @@
   margin-top: 13px;
   float: left;
   position: relative;
+  @include breakpoint($tablet-rotate) {
+    float: right;
+    width: 600px;
+    img {
+      width: 100%;
+    }
+  }
   @include breakpoint($tablet-breakpoint) {
     display: none;
   }
   @include breakpoint($phone-breakpoint) {
     display: none;
   }
+
   img {
     z-index: 2;
     position: relative;
@@ -86,6 +97,10 @@
   justify-content: center;
   margin-left: 66px;
   position: relative;
+  z-index: 10;
+  @include breakpoint($tablet-rotate) {
+    margin-left: 40px;
+  }
   @include breakpoint($tablet-breakpoint) {
     margin-left: calc(50% - (256px / 2));
   }

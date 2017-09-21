@@ -63,8 +63,8 @@ gulp.task('css-libs', function () { // Создаем таск css-libs
 //     spriteData.css.pipe(gulp.dest('app/sass/libs/'));// путь, куда сохраняем стили
 // });
 gulp.task('sprite', (cb) => {
-    let spriteData = gulp.src(['app/img//**/*.png']).pipe(spritesmith({
-        imgName: '../../../img/sprite.png',
+    let spriteData = gulp.src(['app/img/**/*.png']).pipe(spritesmith({
+        imgName: '../img/sprite.png',
         cssName: '_sprite.scss',
         algorithm: 'top-down'
     }));

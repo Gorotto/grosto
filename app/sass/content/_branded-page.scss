@@ -4,6 +4,12 @@
   background-color: #f7f7f7;
   padding: 100px 0;
   box-sizing: border-box;
+  @include breakpoint($tablet-breakpoint) {
+    padding: 50px 0;
+  }
+  @include breakpoint($phone-breakpoint) {
+    padding: 50px 0;
+  }
 }
 
 .branded-page__wrap {
@@ -17,17 +23,41 @@
   width: calc(100% - 700px);
   margin-top: 80px;
   float: right;
+  @include breakpoint($tablet-rotate) {
+    margin-top: 50px;
+    width: calc(100% - 560px);
+  }
+  @include breakpoint($tablet-breakpoint) {
+    width: 100%;
+    margin-top: 50px;
+  }
+  @include breakpoint($phone-breakpoint) {
+    width: 100%;
+    margin-top: 50px;
+  }
   .btn {
     width: 100%;
     margin-top: 145px;
     height: 56px;
+    @include breakpoint($phone-breakpoint) {
+      font-size: 15px;
+    }
   }
 }
 .branded-page__wrap-pic {
-  width: 980px;
+  width: 955px;
   position: absolute;
-  left: 5%;
+  left: 0;
   margin-top: 200px;
+  @include breakpoint($tablet-rotate) {
+    width: 700px;
+  }
+  @include breakpoint($tablet-breakpoint) {
+    display: none;
+  }
+  @include breakpoint($phone-breakpoint) {
+    display: none;
+  }
   img {
     z-index: 2;
     position: relative;
@@ -38,7 +68,7 @@
     border: 1px dashed #14b4ea;
     width: 465px;
     position: absolute;
-    right: -188px;
+    right: -238px;
     z-index: 0;
     margin-top: 165px;
   }
@@ -58,6 +88,15 @@
   justify-content: center;
   left: 24%;
   position: relative;
+  @include breakpoint($tablet-rotate) {
+    left: 25%;
+  }
+  @include breakpoint($tablet-breakpoint) {
+    left: calc(50% - (256px / 2));
+  }
+  @include breakpoint($phone-breakpoint) {
+    left: calc(50% - (256px / 2));
+  }
   &:after {
     content: "";
     width: 307px;
